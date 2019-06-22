@@ -1,3 +1,7 @@
 keys = {
-    'IR_key' : 'e65eb352ded7400986046b6628a1df79',
-    }
+        'speech_key': 'ENTER THE SPEECH KEY HERE',
+        'IR_key' : 'ENTER THE IR KEY HERE',
+        'IR_ENDPOINT' : 'ENTER THE IR ENDPOINT HERE',
+        }
+
+

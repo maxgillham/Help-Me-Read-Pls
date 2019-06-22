@@ -1,9 +1,6 @@
 import azure.cognitiveservices.speech as speechsdk
 import keys
 
-
-
-
 def get_text():
     """
     This method will open the mic and conduct live speech to
@@ -28,6 +25,5 @@ def get_immersive_reader_token():
     return resp.text
 
 if __name__ == "__main__":
+    print(get_text())
 
-    output = get_text()
-    print(output)

@@ -4,7 +4,14 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.content-area {}
+.content-area {
+  padding: 0 0 !important;
+}
+
+.keyword-title-format {
+  color: red;
+  font-size: 30px;
+}
 
 .main-content {
     font-size: 25px;
@@ -17,6 +24,19 @@
 
 .content-wrapper {
     height: 85vh;
+}
+
+.keyword-wrapper {
+  width: 100%;
+  background-color: #F1F1F1;
+  font-style: italic;
+  border-radius: 25px;
+}
+
+.keyword-parser {
+  color: black;
+  background-color: white;
+  border-radius: 15px;
 }
 
 .button-wrapper {
@@ -116,7 +136,7 @@ button img {
 /* Recording Screen */
 
 
-/* 
+/*
 #RecordingScreen {
     right: 0%;
     top: 0%;

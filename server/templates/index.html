@@ -15,16 +15,10 @@
         <img class='ir-button-icon' src='/static/images/icon.svg' />
     </button>
     <h3 id='title1'>THIS IS WHERE THE TEXT APPEARS</h3>
-    <div class='container'>
-    <h3>Test</h3>
-        <form>
-            <a href=# id=test><button class='btn btn-default'>Test</button></a>
-        </form>
-
-      </div>
-    <p id='text1'>omg that text was waaaaaaaaaaaaay too long.</p>
-    Total kills: {{ kills }}
-
+    <form method="post" action="/">
+                <input type="submit" value="Record" name="Record"/>
+    </form>
+    Text: {{ text }}
 </section>
 </main>
 
@@ -48,17 +42,6 @@
     if (/index/.test(loc)) {
         $('.section-route').addClass('active');
     }
-</script>
-<script type=text/javascript>
-        $(function() {
-          $('a#test').bind('click', function() {
-            $.getJSON('/test',
-                function(data) {
-              //do nothing
-            });
-            return false;
-          });
-        });
 </script>
 </body>
 </html>

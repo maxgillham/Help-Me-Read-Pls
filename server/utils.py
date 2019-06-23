@@ -1,5 +1,6 @@
 import azure.cognitiveservices.speech as speechsdk
 import keys
+import requests
 
 def get_text():
     """

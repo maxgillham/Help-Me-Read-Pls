@@ -6,7 +6,7 @@
 function getImmersiveReaderTokenAsync() {
     return new Promise((resolve, reject) => {
         $.ajax({
-            url: '/getimmersivereadertoken',
+            url: '/immerse_token',
             type: 'POST',
             contentType: 'text/plain',
             success: token => {

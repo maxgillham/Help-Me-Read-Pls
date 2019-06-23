@@ -1,6 +1,7 @@
 .background-color-main {
     background-color: #F1ECED;
     height: 100vh !important;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .content-area {
@@ -15,6 +16,8 @@
 
 .record-button-wrapper {
     margin-right: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 .record-button {
@@ -24,6 +27,12 @@
 .record-button>img {
     width: 80px;
     height: 80px;
+}
+
+.record-button-desc {
+    display: inline;
+    color: #2C3E50;
+    font-size: 35px;
 }
 
 .clear-button {

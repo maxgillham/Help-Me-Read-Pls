@@ -4,18 +4,21 @@ from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html', kills='none')
+    if request.method == 'POST':
+        if request.form.get('Record') == 'Record':
+            text = get_text()
+            print(text)
+            return render_template('index.html', text=text)
+        else:
+            return render_template('index.html', text='none')
+    else:
+        return render_template('index.html', text='none')
 
-@app.route('/test')
-def test():
-    print('hellloooooo')
-    return render_template('index.html', kills='200000000')
-@app.route('/transcribe')
 def transcribe():
     text = get_text()
-    return render_template('index.html', kills=text)
+    return render_template('index.html', text=text)
 
 @app.route('/immerse_token', methods=['POST'])
 def immerse_token():

@@ -172,37 +172,3 @@ $('.navlink').removeClass('active');
 if (/index/.test(loc)) {
     $('.section-route').addClass('active');
 }
-
-// Splash Screen
-function splash(){
-
-    let logo = document.getElementById("Logo");
-
-            logo.style.opacity = "1.0";
-
-            setTimeout(function() { endSplash(); }, 2000);
-
-            hasLaunched = true;
-        }
-    });
-
-}
-
-function endSplash(){
-
-    let logo = document.getElementById("Logo");
-
-    logo.style.opacity = "0.0";
-    logo.style.pointerEvents = "none";
-
-    setTimeout(function() { endScreen(); }, 2000);
-}
-
-function endScreen(){
-
-    let splashScreen = document.getElementById("SplashScreen");
-
-    splashScreen.style.opacity = "0.0";
-    splashScreen.style.pointerEvents = "none";
-
-}

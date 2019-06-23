@@ -1,0 +1,36 @@
+.background-color-main {
+    background-color: #F1ECED;
+    height: 100vh !important;
+}
+
+.content-area {
+    height: 100vh;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.record-button-wrapper {
+    margin-right: 30px;
+}
+
+.record-button {
+    border-radius: 35px;
+}
+
+.record-button>img {
+    width: 80px;
+    height: 80px;
+}
+
+.clear-button {
+    border-radius: 35px;
+}
+
+.clear-button>img {
+    width: 80px;
+    height: 80px;
+}

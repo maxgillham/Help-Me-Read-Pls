@@ -8,13 +8,21 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         if request.form.get('Record') == 'Record':
-            text = get_text()
-            print(text)
+            ob = open("text.txt", 'r')
+            text = ob.read() + " "
+            text += get_text()
+            ob.close()
+            ob = open("text.txt", 'w')
+            ob.write(text)
+            ob.close()
             return render_template('index.html', text=text)
         else:
-            return render_template('index.html', text='none')
+            ob = open("text.txt", "w")
+            ob.write(" ")
+            ob.close()
+            return render_template('index.html', text=' ')
     else:
-        return render_template('index.html', text='none')
+        return render_template('index.html', text=' ')
 
 def transcribe():
     text = get_text()

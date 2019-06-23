@@ -25,6 +25,4 @@ def get_immersive_reader_token():
     resp = requests.post(keys.keys['IR_ENDPOINT'], headers=payload)
     return resp.text
 
-if __name__ == "__main__":
-    print(get_text())
-
+text = " "

@@ -11,43 +11,75 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="/static/js/helpers.js"></script>
+    <script src="../static/js/index.js"></script>
 </head>
 
 <body class="body background-color-main">
-
     <main id='ContentArea' class="container p-5 content-area">
+        <div id="BookmarksTab"></div>
 
-        <section class='section' id='Sample1'>
-            <!-- Button for going into immersive reader -->
-            <button class='ir-button' role='button' title='Immersive Reader' aria-label='Immersive Reader' onclick='handleLaunchImmersiveReader(1)'>
-                <img class='ir-button-icon' src='/static/images/icon.svg' width="82" height="82"/>
-            </button>
+        <section class='section content-wrapper' id='Sample1'>
 
             <!-- Display area -->
-            <h3 id='title1'>THIS IS WHERE THE TEXT APPEARS</h3>
-            <p id="text1" class="main-content">{{ text }}</p>
+            <div class="main-content-box">
+                <h3 id='title1'>THIS IS WHERE THE TEXT APPEARS</h3>
+                <p id="text1" class="main-content">{{ text }}</p>
+
+            </div>
 
             <p id="keywords1">{{ keywords }}</p>
             <!-- Button for recording -->
             <div class="button-wrapper">
-                <div class="record-button-wrapper">
-                    <form method="post" action="/">
-                        <button type="submit" value="Record" name="Record" class="btn btn-primary record-button">
+                <div class="button-inner-wrapper">
+                    <div class="record-button-wrapper">
+                        <form method="post" action="/">
+                            <button type="submit" value="Record" name="Record" class="btn btn-primary record-button">
                             <img src="../static/images/microphone-icon-white.png">
                         </button>
-                    </form>
-                    <div class="record-button-desc">Start Recording</div>
-                </div>
-                <div class="clear-button-wrapper">
-                    <form method="post" action="/">
-                        <button type="submit" value="Clear" name="Clear" class="btn btn-warning clear-button">
+                        </form>
+                        <div class="record-button-desc">Start Recording</div>
+                    </div>
+
+                    <div class="clear-button-wrapper">
+                        <form method="post" action="/">
+                            <button type="submit" value="Clear" name="Clear" class="btn btn-warning clear-button">
                             <img src="../static/images/clear-icon-white.png">
                         </button>
-                    </form>
-                    <div class="clear-button-desc">Clear</div>
+                        </form>
+                        <div class="clear-button-desc">Clear</div>
+                    </div>
+
+                    <div class="immersive-reader-button-wrapper">
+                        <!-- Button for going into immersive reader -->
+                        <button type="button" class='btn btn-success immersive-reader-button' role='button' onclick='handleLaunchImmersiveReader(1)'>
+                        <img class='ir-button-icon' src='../static/images/icon.svg' width="70" height="70"/>
+                    </button>
+                        <div class="immersive-reader-button-desc">Immersive Reader</div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Bookmark Button -->
+        <button onclick="toggleBookmarks()">
+            <div id="BookmarksButton"></div>
+        </button>
+
+
+        <!-- Settings -->
+        <button onclick="toggleSettings()">
+            <div id="SettingsButton"></div>
+        </button>
+
+        <div id="SettingsTab">
+            <p id="SettingsTabTitle">Settings</p>
+            <div id="SettingsTabButtonList">
+                <div class="SettingsTabButton">Account Settings</div>
+                <div class="SettingsTabButton">Translation</div>
+                <div class="SettingsTabButton">Import PDF</div>
+            </div>
+        </div>
+
     </main>
 
     <script type='text/javascript'>

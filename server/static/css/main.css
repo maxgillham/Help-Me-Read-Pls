@@ -1,23 +1,36 @@
-    .background-color-main {
+.background-color-main {
     background-color: #F1ECED;
     height: 100vh !important;
     font-family: 'Open Sans', sans-serif;
 }
 
-.content-area {
-    height: 100vh;
-}
+.content-area {}
 
 .main-content {
     font-size: 25px;
 }
 
-.button-wrapper {
-    height: 150vh;
+.main-content-box {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+}
+
+.content-wrapper {
+    height: 85vh;
+}
+
+.button-wrapper {
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     vertical-align: bottom;
+}
+
+.button-inner-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .record-button-wrapper {
@@ -45,6 +58,7 @@
 
 .clear-button-wrapper {
     margin-left: 30px;
+    margin-right: 30px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -65,3 +79,219 @@
     color: #2C3E50;
     font-size: 15px;
     font-weight: bold;
+}
+
+.immersive-reader-button-wrapper {
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 132.4px;
+}
+
+.immersive-reader-button {
+    color: #28A745;
+    border-radius: 35px;
+    width: 106px;
+    height: 94px;
+    margin-bottom: 16px;
+}
+
+button img {
+    width: 70px;
+    height: 70px;
+}
+
+.immersive-reader-button-desc {
+    color: #2C3E50;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+/* Alari's input */
+
+
+/* Recording Screen */
+
+
+/* 
+#RecordingScreen {
+    right: 0%;
+    top: 0%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: width 0.5s;
+    text-align: center;
+} */
+
+
+/* Recording Button */
+
+#RecordButton {
+    position: relative;
+    margin: auto;
+    top: 450px;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background: #3498DB;
+    box-shadow: 0px 6px 0px #2980B9;
+    transition: all 0.1s;
+}
+
+#RecordIcon {
+    background-color: #ecf0f1;
+    z-index: 1;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    top: 16px;
+    position: relative;
+    -webkit-mask: url(../images/microphone-icon-white.png) top left / cover;
+}
+
+#RecordText {
+    position: relative;
+    width: 271px;
+    height: 48px;
+    top: 75%;
+    margin: 0 auto;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 48px;
+    /* identical to box height */
+    color: #2C3E50;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* Bookmarks */
+
+#BookmarksButton {
+    background-color: #2c3e50;
+    z-index: 1;
+    height: 50px;
+    width: 50px;
+    left: 3.125%;
+    top: 5.55%;
+    position: absolute;
+    -webkit-mask: url(../images/bookmark-icon.png) top left / cover;
+    transition: background-color 0.5s;
+}
+
+#BookmarksTab {
+    position: absolute;
+    width: 28%;
+    height: 100%;
+    left: -28%;
+    top: 0%;
+    background: #3498DB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-top-right-radius: 45px;
+    border-bottom-right-radius: 45px;
+    transition: left 0.5s;
+}
+
+
+/* Settings */
+
+#SettingsButton {
+    background-color: #2c3e50;
+    z-index: 1;
+    height: 50px;
+    width: 50px;
+    right: 3.125%;
+    top: 5.55%;
+    position: absolute;
+    -webkit-mask: url(../images/setting-icon.png) top left / cover;
+}
+
+#SettingsTab {
+    position: absolute;
+    width: 28%;
+    height: 42%;
+    right: 1.5625%;
+    top: 2.77%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 45px;
+    visibility: hidden;
+    opacity: 0.0;
+    transition: all 0.5s;
+    color: #2c3e50;
+    pointer-events: none;
+    user-select: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 48px;
+}
+
+#SettingsTabTitle {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    top: 15px;
+    left: -20px;
+    font-size: 32px;
+}
+
+#SettingsTabButtonList {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    top: 20px;
+}
+
+.SettingsTabButton {
+    position: relative;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 45px;
+    background-color: #3498db;
+    color: #ecf0f1;
+    box-shadow: 0px 6px 0px #2980b9;
+    width: 280px;
+    height: 40px;
+    transition: all 0.1s;
+}
+
+.SettingsTabButton:hover {
+    cursor: pointer;
+}
+
+
+/* Clear Button */
+
+#ClearButton {
+    position: fixed;
+    margin: auto;
+    right: 45px;
+    top: 465px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #bdc3c7;
+    box-shadow: 0px 6px 0px #95a5a6;
+    transition: all 0.1s;
+}
+
+#ClearButtonText {
+    position: relative;
+    margin: auto;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 48px;
+    color: #95a5a6;
+}

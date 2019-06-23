@@ -7,116 +7,94 @@
     <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
     <script type='text/javascript' src='http://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js'></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="/static/js/helpers.js"></script>
     <script src="/static/js/index.js"></script>
 </head>
 
-<body class="body background-color-main">
-    <main id='ContentArea' class="container p-5 content-area">
-        <div id="BookmarksTab"></div>
+<body>
 
-        <section class='section content-wrapper' id='Sample1'>
+  <!-- Main Content -->
 
-            <!-- Display area -->
-            <div class="main-content-box">
-                <p id="text1" class="main-content">{{ text }}</p>
+  <div id="Main">
 
-            </div>
+      <!-- Bookmarks -->
 
-            <p id="keyword1">{{ keywords }} </p>
+      <div id="BookmarksTab">
+          <p id="BookmarksTabTitle">Keywords</p>
+          <div id="BookmarksFrame">
+          </div>
+          <div id="BookmarksList">
+              <div class="KeywordNote">
+                  <h2>World War I</h2>
+                  <p>Entente</p>
+                  <p>Central Powers</p>
+                  <p>Battle of Ypres</p>
+              </div>
+              <div class="KeywordNote">
+                  <h2>War of 1812</h2>
+                  <p>Treaty of Ghent</p>
+              </div>
+          </div>
+      </div>
 
+      <!-- Recording -->
+      <div id="RecordingScreen">
 
-            <div><div class="keyword-title-format">Keywords:</<div><div class="keyword-wrapper"><div id="outsideText"></div></div></div>
+          <!-- Text Area -->
+          <div id="TextArea">
+              <p>{{ text }}</p>
+          </div>
 
-            <script>
-                let keywords = document.getElementById("keyword1").innerHTML;
-                keywords = keywords.replace('[', '');
-                keywords = keywords.replace(']', '');
-                let myKeywords = keywords.split(',');
-                let returnString = '';
-                myKeywords = myKeywords.map((keyword) => {
-                  return '<h1 class="keyword-parser">' + keyword + '</h1>';
-                });
-                myKeywords.forEach((keyString) => { returnString+=keyString });
-                document.getElementById("outsideText").innerHTML = returnString;
-            </script>
+          <div id="ButtonArea">
+              <!-- Record Button -->
+              <form id="RecordForm" method="post" action="/">
+                  <button onclick="toggleRecord()" value="Record" name="Record">
+                      <div id="RecordButton">
+                          <div id="RecordIcon"></div>
+                      </div>
+                  </button>
+              </form>
 
-            <!-- Button for recording -->
-            <div class="button-wrapper">
-                <div class="button-inner-wrapper">
-                    <div class="record-button-wrapper">
-                        <form method="post" action="/">
-                            <button type="submit" value="Record" name="Record" class="btn btn-primary record-button">
-                            <img src="../static/images/microphone-icon-white.png">
-                        </button>
-                        </form>
-                        <div class="record-button-desc">Start Recording</div>
-                    </div>
+              <p id="RecordText">
+                  Start Recording
+              </p>
+          </div>
 
-                    <div class="clear-button-wrapper">
-                        <form method="post" action="/">
-                            <button type="submit" value="Clear" name="Clear" class="btn btn-warning clear-button">
-                            <img src="../static/images/clear-icon-white.png">
-                        </button>
-                        </form>
-                        <div class="clear-button-desc">Clear</div>
-                    </div>
+          <!-- Clear Button -->
+          <button onmousedown="startClear()" onmouseup="finishClear()">
+              <div id="ClearButton">
+                  <p id="ClearButtonText">Clear</p>
+              </div>
+          </button>
 
-                    <div class="immersive-reader-button-wrapper">
-                        <!-- Button for going into immersive reader -->
-                        <button type="button" class='btn btn-success immersive-reader-button' role='button' onclick='handleLaunchImmersiveReader(1)'>
-                        <img class='ir-button-icon' src='../static/images/icon.svg' width="70" height="70"/>
-                    </button>
-                        <div class="immersive-reader-button-desc">Immersive Reader</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      </div>
 
-        <!-- Bookmark Button -->
-        <button onclick="toggleBookmarks()">
-            <div id="BookmarksButton"></div>
-        </button>
+  </div>
 
+  <!-- Bookmark Button -->
 
-        <!-- Settings -->
-        <button onclick="toggleSettings()">
-            <div id="SettingsButton"></div>
-        </button>
+  <button onclick="toggleBookmarks()">
+      <div id="BookmarksButton"></div>
+  </button>
 
-        <div id="SettingsTab">
-            <p id="SettingsTabTitle">Settings</p>
-            <div id="SettingsTabButtonList">
-                <div class="SettingsTabButton">Account Settings</div>
-                <div class="SettingsTabButton">Translation</div>
-                <div class="SettingsTabButton">Import PDF</div>
-            </div>
-        </div>
+  <!-- Settings -->
 
-    </main>
+  <button onclick="toggleSettings()">
+      <div id="SettingsButton"></div>
+  </button>
 
-    <script type='text/javascript'>
-        /* global $ */
-        async function handleLaunchImmersiveReader(sampleId) {
-            const data = {
-                title: $('#title' + sampleId).text().trim(),
-                chunks: [{
-                    content: $('#text' + sampleId).text().trim(),
-                    lang: 'en'
-                }]
-            };
-            const token = await getImmersiveReaderTokenAsync();
-            ImmersiveReader.launchAsync(token, data);
-        }
-        const loc = window.location.href;
-        $('.navlink').removeClass('active');
-        if (/index/.test(loc)) {
-            $('.section-route').addClass('active');
-        }
-    </script>
+  <div id="SettingsTab">
+      <p id="SettingsTabTitle">Settings</p>
+      <div id="SettingsTabButtonList">
+      <div class="SettingsTabButton">Account Settings</div>
+      <div class="SettingsTabButton">Translation</div>
+      <div class="SettingsTabButton">Import PDF</div>
+      </div>
+  </div>
+
 </body>
 
 </html>

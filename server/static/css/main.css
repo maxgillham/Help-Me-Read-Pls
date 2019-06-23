@@ -1,159 +1,59 @@
-.background-color-main {
-    background-color: #F1ECED;
-    height: 100vh !important;
-    font-family: 'Open Sans', sans-serif;
+/* Generic */
+body{
+  background-color: #F1ECED;
 }
 
-.content-area {
-  padding: 0 0 !important;
+button{
+    background:transparent;
+    border:0;
 }
 
-.keyword-title-format {
-  color: red;
-  font-size: 30px;
+button:focus {
+    outline:0;
 }
 
-.main-content {
-    font-size: 25px;
+button:hover{
+    cursor: pointer;
 }
 
-.main-content-box {
-    display: flex;
-    justify-content: center;
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
-
-.content-wrapper {
-    height: 85vh;
-}
-
-.keyword-wrapper {
-  width: 100%;
-  background-color: #F1F1F1;
-  font-style: italic;
-  border-radius: 25px;
-}
-
-.keyword-parser {
-  color: black;
-  background-color: white;
-  border-radius: 15px;
-}
-
-.button-wrapper {
-    height: 85%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    vertical-align: bottom;
-}
-
-.button-inner-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.record-button-wrapper {
-    margin-right: 30px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center
-}
-
-.record-button {
-    border-radius: 35px;
-}
-
-.record-button>img {
-    width: 80px;
-    height: 80px;
-}
-
-.record-button-desc {
-    color: #2C3E50;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.clear-button-wrapper {
-    margin-left: 30px;
-    margin-right: 30px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.clear-button {
-    color: #C4C4C4;
-    border-radius: 35px;
-}
-
-.clear-button>img {
-    width: 80px;
-    height: 80px;
-}
-
-.clear-button-desc {
-    color: #2C3E50;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.immersive-reader-button-wrapper {
-    margin-left: 30px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 132.4px;
-}
-
-.immersive-reader-button {
-    color: #28A745;
-    border-radius: 35px;
-    width: 106px;
-    height: 94px;
-    margin-bottom: 16px;
-}
-
-button img {
-    width: 70px;
-    height: 70px;
-}
-
-.immersive-reader-button-desc {
-    color: #2C3E50;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-
-/* Alari's input */
-
 
 /* Recording Screen */
 
-
-/*
-#RecordingScreen {
-    right: 0%;
-    top: 0%;
+#RecordingScreen{
+    right:0%;
+    top:0%;
     height: 100%;
-    width: 100%;
+    width:100%;
     position: absolute;
     transition: width 0.5s;
     text-align: center;
-} */
+}
 
+/* Text Area */
+#TextArea{
+    position: relative;
+    height: 60%;
+    width: 80%;
+    top: 10%;
+    left: 10%;
+    padding: 10px;
+}
+
+/* Button Area */
+#ButtonArea{
+    position: relative;
+    top: 40px;
+}
 
 /* Recording Button */
-
-#RecordButton {
+#RecordButton{
     position: relative;
     margin: auto;
-    top: 450px;
+    bottom: -50px;
     width: 80px;
     height: 80px;
     border-radius: 100%;
@@ -162,88 +62,167 @@ button img {
     transition: all 0.1s;
 }
 
-#RecordIcon {
+#RecordIcon{
     background-color: #ecf0f1;
     z-index: 1;
-    height: 50px;
+    height:50px;
     width: 50px;
     margin: auto;
     top: 16px;
     position: relative;
-    -webkit-mask: url(../images/microphone-icon-white.png) top left / cover;
+    -webkit-mask: url(../images/MicrophoneIcon.svg) top left / cover;
 }
 
-#RecordText {
+#RecordText{
     position: relative;
     width: 271px;
     height: 48px;
-    top: 75%;
+    top: 40px;
     margin: 0 auto;
+
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 48px;
     /* identical to box height */
+
     color: #2C3E50;
+
     pointer-events: none;
     user-select: none;
 }
 
 
 /* Bookmarks */
-
-#BookmarksButton {
+#BookmarksButton{
     background-color: #2c3e50;
     z-index: 1;
-    height: 50px;
+    height:50px;
     width: 50px;
-    left: 3.125%;
-    top: 5.55%;
+    left:3.125%;
+    top:5.55%;
     position: absolute;
-    -webkit-mask: url(../images/bookmark-icon.png) top left / cover;
+    -webkit-mask: url(../images/BookmarksIcon.svg) top left / cover;
     transition: background-color 0.5s;
 }
 
-#BookmarksTab {
-    position: absolute;
-    width: 28%;
-    height: 100%;
-    left: -28%;
-    top: 0%;
-    background: #3498DB;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-top-right-radius: 45px;
-    border-bottom-right-radius: 45px;
-    transition: left 0.5s;
+#BookmarksTab{
+
+  position: absolute;
+  width: 28%;
+  height: 100%;
+  left: -28%;
+  top: 0%;
+
+  background: #3498DB;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-top-right-radius: 45px;
+  border-bottom-right-radius: 45px;
+  transition: left 0.5s;
 }
 
+#BookmarksTabTitle{
+
+    color: #ecf0f1;
+    pointer-events: none;
+    user-select: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 48px;
+
+    position: relative;
+    margin: auto;
+    left: 80px;
+    top: 35px;
+    transition: all 0.5s;
+    opacity: 0;
+
+}
+
+#BookmarksFrame{
+    position: relative;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 70%;
+    z-index: 10;
+    opacity: 0.1;
+}
+
+#BookmarksList{
+    position: relative;
+    top: -57%;
+    left: 10%;
+    width: 80%;
+    height: 70%;
+    overflow: scroll;
+    overflow-x: hidden;
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.5s;
+}
+
+#BookmarksList:before{
+    content:'';
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+
+}
+
+.KeywordNote{
+    position: relative;
+    background-color: #ecf0f1;
+    border-radius: 45px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    pointer-events: none;
+    user-select: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 48px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    z-index: -1;
+}
 
 /* Settings */
-
-#SettingsButton {
+#SettingsButton{
     background-color: #2c3e50;
     z-index: 1;
-    height: 50px;
+    height:50px;
     width: 50px;
-    right: 3.125%;
-    top: 5.55%;
+    right:3.125%;
+    top:5.55%;
     position: absolute;
-    -webkit-mask: url(../images/setting-icon.png) top left / cover;
+    -webkit-mask: url(../images/SettingsIcon.svg) top left / cover;
 }
 
-#SettingsTab {
+#SettingsTab{
+
     position: absolute;
     width: 28%;
     height: 42%;
     right: 1.5625%;
     top: 2.77%;
+
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 45px;
     visibility: hidden;
     opacity: 0.0;
     transition: all 0.5s;
+
     color: #2c3e50;
     pointer-events: none;
     user-select: none;
@@ -252,9 +231,10 @@ button img {
     font-weight: bold;
     font-size: 24px;
     line-height: 48px;
+
 }
 
-#SettingsTabTitle {
+#SettingsTabTitle{
     position: relative;
     margin: auto;
     text-align: center;
@@ -264,7 +244,7 @@ button img {
     font-size: 32px;
 }
 
-#SettingsTabButtonList {
+#SettingsTabButtonList{
     position: relative;
     margin: auto;
     text-align: center;
@@ -272,7 +252,7 @@ button img {
     top: 20px;
 }
 
-.SettingsTabButton {
+.SettingsTabButton{
     position: relative;
     margin: auto;
     margin-top: 10px;
@@ -285,17 +265,16 @@ button img {
     transition: all 0.1s;
 }
 
-.SettingsTabButton:hover {
+.SettingsTabButton:hover{
     cursor: pointer;
 }
 
-
 /* Clear Button */
+#ClearButton{
 
-#ClearButton {
     position: fixed;
     margin: auto;
-    right: 45px;
+    right:45px;
     top: 465px;
     width: 50px;
     height: 50px;
@@ -303,11 +282,13 @@ button img {
     background: #bdc3c7;
     box-shadow: 0px 6px 0px #95a5a6;
     transition: all 0.1s;
+
 }
 
-#ClearButtonText {
+#ClearButtonText{
     position: relative;
     margin: auto;
+
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;

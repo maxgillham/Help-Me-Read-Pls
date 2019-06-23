@@ -3,6 +3,7 @@ let isBookmarksOpen = false;
 let isSettingsOpen = false;
 let isRecording = false;
 let isReading = false;
+let hasLaunched = false;
 
 // Bookmark tab toggle function
 function toggleBookmarks() {
@@ -68,10 +69,12 @@ function toggleRecord() {
     const button = document.getElementById("RecordButton");
     const text = document.getElementById("RecordText");
     const form = document.getElementById("RecordForm");
+    var audio = document.getElementById("StartRecordingAudio");
 
     // Open if closed
     if (!isRecording) {
         isRecording = true;
+        audio.play();
         button.style.backgroundColor = "#c0392b";
         button.style.bottom = "-56px";
         button.style.boxShadow = "0px 0px 0px #2980B9";
@@ -101,7 +104,7 @@ function startClear() {
     isClearing = true;
     button.style.boxShadow = "0px 0px 0px #95a5a6";
     button.style.backgroundColor = "#95a5a6";
-    buttonWrapper.style.top = "-24px";
+    buttonWrapper.style.top = "106px";
     text.style.color = "#7f8c8d";
 
 }
@@ -118,7 +121,7 @@ function finishClear() {
     isClearing = false;
     button.style.boxShadow = "0px 6px 0px #95a5a6";
     button.style.backgroundColor = "#bdc3c7";
-    buttonWrapper.style.top = "-30px";
+    buttonWrapper.style.top = "100px";
     text.style.color = "#95a5a6";
 
 }
@@ -133,7 +136,7 @@ function launchImmersiverReader(){
     isReading = true;
     button.style.boxShadow = "0px 0px 0px #8e44ad";
     button.style.backgroundColor = "#8e44ad";
-    button.style.top = "-89px";
+    button.style.top = "56px";
 
     handleLaunchImmersiveReader(1);
 
@@ -148,7 +151,7 @@ function finishImmersiveReader(){
     isReading = false;
     button.style.boxShadow = "0px 6px 0px #8e44ad";
     button.style.backgroundColor = "#9b59b6";
-    button.style.top = "-95px";
+    button.style.top = "50px";
 
 }
 
@@ -168,4 +171,38 @@ const loc = window.location.href;
 $('.navlink').removeClass('active');
 if (/index/.test(loc)) {
     $('.section-route').addClass('active');
+}
+
+// Splash Screen
+function splash(){
+
+    let logo = document.getElementById("Logo");
+
+            logo.style.opacity = "1.0";
+
+            setTimeout(function() { endSplash(); }, 2000);
+
+            hasLaunched = true;
+        }
+    });
+
+}
+
+function endSplash(){
+
+    let logo = document.getElementById("Logo");
+
+    logo.style.opacity = "0.0";
+    logo.style.pointerEvents = "none";
+
+    setTimeout(function() { endScreen(); }, 2000);
+}
+
+function endScreen(){
+
+    let splashScreen = document.getElementById("SplashScreen");
+
+    splashScreen.style.opacity = "0.0";
+    splashScreen.style.pointerEvents = "none";
+
 }

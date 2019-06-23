@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,12 +17,20 @@
     <script src="/static/js/index.js"></script>
 </head>
 
-<body>
+<body onload="splash()">
+
+    <!-- Splash Screen -->
+    <div id="SplashScreen">
+
+        <div id="Logo">
+            <img src="../static/images/WordLensLogo.png" height="610">
+        </div>
+
+    </div>
 
   <!-- Main Content -->
 
   <div id="Main">
-
       <!-- Bookmarks -->
 
       <div id="BookmarksTab">
@@ -27,17 +38,10 @@
           <div id="BookmarksFrame">
           </div>
           <div id="BookmarksList">
-              <div class="KeywordNote">
-                  <h2>World War I</h2>
-                  <p>Entente</p>
-                  <p>Central Powers</p>
-                  <p>Battle of Ypres</p>
-              </div>
-              <div class="KeywordNote">
-                  <h2>War of 1812</h2>
-                  <p>Treaty of Ghent</p>
-              </div>
+
           </div>
+
+          <p id="keyword1" visibility: hidden>{{ keywords }} </p>
       </div>
 
       <!-- Recording -->
@@ -45,7 +49,9 @@
 
           <!-- Text Area -->
           <div id="TextArea">
-              <p>{{ text }}</p>
+              <div id="TextLocation">
+                  <p>{{text}}</p>
+              </div>
           </div>
 
           <div id="ButtonArea">
@@ -61,6 +67,7 @@
               <p id="RecordText">
                   Start Recording
               </p>
+
           </div>
 
           <!-- Clear Button -->
@@ -105,6 +112,34 @@
       <div class="SettingsTabButton">Import PDF</div>
       </div>
   </div>
+
+  <!-- Script -->
+  <script>
+      let keywords = document.getElementById("keyword1").innerHTML;
+      keywords = keywords.replace('[', '');
+      keywords = keywords.replace(']', '');
+      keywords = keywords.replace(/["]+/g, '');
+      let myKeywords = keywords.split(',');
+
+      console.log(myKeywords)
+
+      for (let keyword of myKeywords){
+
+          let list = document.getElementById("BookmarksList")
+          let div = document.createElement('DIV');
+          div.className = "KeywordNote";
+
+          let text = document.createElement('h2');
+          text.innerHTML = keyword;
+
+          list.appendChild(div);
+          div.appendChild(text);
+
+      }
+  </script>
+
+  <!-- Sounds -->
+  <audio id="StartRecordingAudio" src="../static/sounds/StartRecording.wav" ></audio>
 
 </body>
 

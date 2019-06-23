@@ -1,6 +1,21 @@
 /* Generic */
+html{
+    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    margin: 0px;
+}
+
 body{
   background-color: #F1ECED;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 button{
@@ -21,6 +36,14 @@ button:hover{
     background: transparent; /* make scrollbar transparent */
 }
 
+#Main{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
 /* Recording Screen */
 
 #RecordingScreen{
@@ -36,17 +59,21 @@ button:hover{
 /* Text Area */
 #TextArea{
     position: relative;
-    height: 60%;
-    width: 80%;
-    top: 10%;
-    left: 10%;
-    padding: 10px;
+    height: 40%;
+    width: 60%;
+    top: 100px;
+    left: 0px;
+    margin-right: auto;
+    display: flex;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: inline-block;
 }
 
 /* Button Area */
 #ButtonArea{
     position: relative;
-    top: 40px;
+    top: 160px;
 }
 
 /* Recording Button */
@@ -162,17 +189,8 @@ button:hover{
     overflow-x: hidden;
     opacity: 0;
     z-index: 1;
+    vertical-align: middle;
     transition: all 0.5s;
-}
-
-#BookmarksList:before{
-    content:'';
-    width:100%;
-    height:100%;
-    position:absolute;
-    left:0;
-    top:0;
-
 }
 
 .KeywordNote{
@@ -193,7 +211,15 @@ button:hover{
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
+    vertical-align: middle;
     z-index: -1;
+}
+
+.KeywordNote h2{
+    position: relative;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
 }
 
 /* Settings */
@@ -273,7 +299,7 @@ button:hover{
 #ClearButtonWrapper{
     position: relative;
     margin: auto;
-    top: -30px;
+    top: 100px;
     left: 110px;
     transition: all 0.1s;
 }
@@ -307,7 +333,7 @@ button:hover{
     position: relative;
     margin: auto;
     left: -110px;
-    top: -95px;
+    top: 50px;
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -330,4 +356,25 @@ button:hover{
     height: 60%;
     width: 60%;
     -webkit-mask: url(../images/ImmersiveReaderIcon.svg) top left / cover;
+}
+
+/* Splash Screen */
+#SplashScreen{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #F1ECED;
+    z-index: 100;
+    opacity: 1;
+    transition: all 2s;
+}
+
+#Logo{
+    opacity: 0;
+    transition: all 2s;
+}
+
+#Logo img{
+    display: block;
+    margin: auto;
 }

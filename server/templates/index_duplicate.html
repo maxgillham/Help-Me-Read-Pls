@@ -26,12 +26,12 @@
 
             </div>
 
-            <p id="keyword1">{{ keywords }} </p>
+            <p id="keyword1" visibility:hidden>{{ keywords }} </p>
 
 
             <div><div class="keyword-title-format">Keywords:</<div><div class="keyword-wrapper"><div id="outsideText"></div></div></div>
 
-            <script>
+            <script>                
                 let keywords = document.getElementById("keyword1").innerHTML;
                 keywords = keywords.replace('[', '');
                 keywords = keywords.replace(']', '');

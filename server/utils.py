@@ -1,6 +1,7 @@
 import azure.cognitiveservices.speech as speechsdk
 import keys
 import requests
+import json
 
 def get_text():
     """
@@ -20,9 +21,27 @@ def get_text():
         output = "Cancelled"
     return output
 
-def get_immersive_reader_token(): #This method posts immersive reader token 
+def get_immersive_reader_token():
     payload = {'Ocp-Apim-Subscription-Key': keys.keys['IR_key'],'content-type': 'application/x-www-form-urlencoded'}
     resp = requests.post(keys.keys['IR_ENDPOINT'], headers=payload)
     return resp.text
 
-text = " "
+def get_key_words():
+    """
+    Grab the key words from the text.txt file
+    """
+    ob = open("text.txt", "r")
+    text = ob.read()
+    ob.close()
+    documents = { "documents": [
+            { "id": "1", "text": text}
+
+        ] }
+
+    region = "eastus"
+    keyword_key = keys.keys['keyword_key']
+    headers   = {"Ocp-Apim-Subscription-Key": keyword_key}
+    response  = requests.post(keys.keys['keyword_url'], headers=headers, json=documents)
+    keywords = response.json()
+    return json.dumps(keywords['documents'][0]['keyPhrases'])
+

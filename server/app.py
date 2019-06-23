@@ -15,14 +15,15 @@ def index():
             ob = open("text.txt", 'w')
             ob.write(text)
             ob.close()
-            return render_template('index.html', text=text)
+            keywords = get_key_words()
+            return render_template('index.html', text=text, keywords=keywords)
         else:
             ob = open("text.txt", "w")
             ob.write(" ")
             ob.close()
-            return render_template('index.html', text=' ')
+            return render_template('index.html', text=' ', keywords=' ')
     else:
-        return render_template('index.html', text=' ')
+        return render_template('index.html', text=' ',keywords=' ')
 
 def transcribe():
     text = get_text()

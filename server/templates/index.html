@@ -15,7 +15,6 @@
 
 <body class="body background-color-main">
 
-
     <main id='ContentArea' class="container p-5 content-area">
 
         <section class='section' id='Sample1'>
@@ -26,7 +25,7 @@
 
             <!-- Display area -->
             <h3 id='title1'>THIS IS WHERE THE TEXT APPEARS</h3>
-            <p id="text1">{{ text }}</p>
+            <p id="text1" class="main-content">{{ text }}</p>
 
             <p id="keywords1">{{ keywords }}</p>
             <!-- Button for recording -->
@@ -37,7 +36,7 @@
                             <img src="../static/images/microphone-icon-white.png">
                         </button>
                     </form>
-                    <div>Start Recording</div>
+                    <div class="record-button-desc">Start Recording</div>
                 </div>
                 <div class="clear-button-wrapper">
                     <form method="post" action="/">

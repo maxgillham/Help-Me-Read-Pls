@@ -1,4 +1,4 @@
-.background-color-main {
+    .background-color-main {
     background-color: #F1ECED;
     height: 100vh !important;
     font-family: 'Open Sans', sans-serif;
@@ -8,16 +8,24 @@
     height: 100vh;
 }
 
+.main-content {
+    font-size: 25px;
+}
+
 .button-wrapper {
+    height: 150vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    vertical-align: bottom;
 }
 
 .record-button-wrapper {
     margin-right: 30px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center
 }
 
 .record-button {
@@ -30,12 +38,21 @@
 }
 
 .record-button-desc {
-    display: inline;
     color: #2C3E50;
-    font-size: 35px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.clear-button-wrapper {
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .clear-button {
+    color: #C4C4C4;
     border-radius: 35px;
 }
 
@@ -43,3 +60,8 @@
     width: 80px;
     height: 80px;
 }
+
+.clear-button-desc {
+    color: #2C3E50;
+    font-size: 15px;
+    font-weight: bold;

@@ -2,6 +2,7 @@
 let isBookmarksOpen = false;
 let isSettingsOpen = false;
 let isRecording = false;
+let isReading = false;
 
 // Bookmark tab toggle function
 function toggleBookmarks() {
@@ -93,14 +94,15 @@ function startClear() {
 
     // Get clear button
     const button = document.getElementById("ClearButton");
+    const buttonWrapper = document.getElementById("ClearButtonWrapper");
     const text = document.getElementById("ClearButtonText");
 
     // Start Clearing
     isClearing = true;
     button.style.boxShadow = "0px 0px 0px #95a5a6";
     button.style.backgroundColor = "#95a5a6";
+    buttonWrapper.style.top = "-24px";
     text.style.color = "#7f8c8d";
-    button.style.top = "471px";
 
 }
 
@@ -109,13 +111,61 @@ function finishClear() {
 
     // Get clear button
     const button = document.getElementById("ClearButton");
+    const buttonWrapper = document.getElementById("ClearButtonWrapper");
     const text = document.getElementById("ClearButtonText");
 
     // Unclear
     isClearing = false;
     button.style.boxShadow = "0px 6px 0px #95a5a6";
     button.style.backgroundColor = "#bdc3c7";
+    buttonWrapper.style.top = "-30px";
     text.style.color = "#95a5a6";
-    button.style.top = "465px";
 
+}
+
+// Launch immersive Reader
+function launchImmersiverReader(){
+
+    // Get buttons
+    const button = document.getElementById("ReaderButton");
+
+    // Start Clearing
+    isReading = true;
+    button.style.boxShadow = "0px 0px 0px #8e44ad";
+    button.style.backgroundColor = "#8e44ad";
+    button.style.top = "-89px";
+
+    handleLaunchImmersiveReader(1);
+
+}
+
+function finishImmersiveReader(){
+
+    // Get buttons
+    const button = document.getElementById("ReaderButton");
+
+    // Unclear
+    isReading = false;
+    button.style.boxShadow = "0px 6px 0px #8e44ad";
+    button.style.backgroundColor = "#9b59b6";
+    button.style.top = "-95px";
+
+}
+
+/* global $ */
+async function handleLaunchImmersiveReader() {
+    const data = {
+        title: 'WordLens',
+        chunks: [{
+            content: $('#TextArea').text().trim(),
+            lang: 'en'
+        }]
+    };
+    const token = await getImmersiveReaderTokenAsync();
+    ImmersiveReader.launchAsync(token, data);
+}
+const loc = window.location.href;
+$('.navlink').removeClass('active');
+if (/index/.test(loc)) {
+    $('.section-route').addClass('active');
 }

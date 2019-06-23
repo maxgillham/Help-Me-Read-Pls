@@ -270,12 +270,16 @@ button:hover{
 }
 
 /* Clear Button */
+#ClearButtonWrapper{
+    position: relative;
+    margin: auto;
+    top: -30px;
+    left: 110px;
+    transition: all 0.1s;
+}
+
 #ClearButton{
 
-    position: fixed;
-    margin: auto;
-    right:45px;
-    top: 465px;
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -295,4 +299,35 @@ button:hover{
     font-size: 16px;
     line-height: 48px;
     color: #95a5a6;
+}
+
+/* Reader Button */
+#ReaderButton{
+
+    position: relative;
+    margin: auto;
+    left: -110px;
+    top: -95px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background: #9b59b6;
+    box-shadow: 0px 6px 0px #8e44ad;
+    transition: all 0.1s;
+
+}
+
+#ReaderButton button{
+    height: 50px;
+    width: 50px;
+}
+
+#ReaderIcon{
+    position: relative;
+    margin: auto;
+    background-color: #ecf0f1;
+    top: 2px;
+    height: 60%;
+    width: 60%;
+    -webkit-mask: url(../images/ImmersiveReaderIcon.svg) top left / cover;
 }

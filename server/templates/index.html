@@ -64,11 +64,22 @@
           </div>
 
           <!-- Clear Button -->
-          <button onmousedown="startClear()" onmouseup="finishClear()">
-              <div id="ClearButton">
-                  <p id="ClearButtonText">Clear</p>
+          <form id="ClearForm" method="POST" action="/">
+              <div id="ClearButtonWrapper">
+                  <button onmousedown="startClear()" onmouseup="finishClear()">
+                      <div id="ClearButton">
+                          <p id="ClearButtonText">Clear</p>
+                      </div>
+                  </button>
               </div>
-          </button>
+          </form>
+
+          <!-- Immersive Reader Button -->
+          <div id="ReaderButton">
+              <button onmousedown="launchImmersiverReader()" onmouseup="finishImmersiveReader()">
+                  <div id="ReaderIcon"></div>
+              </button>
+          </div>
 
       </div>
 

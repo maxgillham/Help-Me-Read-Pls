@@ -1,50 +1,73 @@
-<!DOCTYPE html>
-<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="../static/css/main.css" rel="stylesheet">
     <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
     <script type='text/javascript' src='http://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js'></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="/static/js/helpers.js"></script>
 </head>
-<body class="body">
-<main id='ContentArea' class="container p-5">
-<section class='section' id='Sample1'>
-    <button class='ir-button ir-button-small' role='button' title='Immersive Reader' aria-label='Immersive Reader' onclick='handleLaunchImmersiveReader(1)'>
-        <img class='ir-button-icon' src='/static/images/icon.svg' />
-    </button>
-    <h3 id='title1'>THIS IS WHERE THE TEXT APPEARS</h3>
-    <form method="post" action="/">
-                <input type="submit" value="Record" name="Record"/>
-                <input type="submit" value="Clear" name="Clear"/>
-    </form>
-    <p id='text1'>
-    {{ text }}
-    </p>
-</section>
-</main>
 
-<script type='text/javascript'>
-    /* global $ */
-    async function handleLaunchImmersiveReader(sampleId) {
-        const data = {
-            title: $('#title' + sampleId).text().trim(),
-            chunks: [{
-                content: $('#text' + sampleId).text().trim(),
-                lang: 'en'
-            }]
-        };
+<body class="body background-color-main">
 
-        const token = await getImmersiveReaderTokenAsync();
-        ImmersiveReader.launchAsync(token, data);
-    }
 
-    const loc = window.location.href;
-    $('.navlink').removeClass('active');
-    if (/index/.test(loc)) {
-        $('.section-route').addClass('active');
-    }
-</script>
+    <main id='ContentArea' class="container p-5 content-area">
+
+        <section class='section' id='Sample1'>
+            <!-- Button for going into immersive reader -->
+            <button class='ir-button ir-button-small' role='button' title='Immersive Reader' aria-label='Immersive Reader' onclick='handleLaunchImmersiveReader(1)'></button>
+
+            <!-- Display area -->
+            <h3 id='title1'>THIS IS WHERE THE TEXT APPEARS</h3>
+            <p id="text1">{{ text }}</p>
+
+            <!-- Button for recording -->
+            <div class="button-wrapper">
+                <div class="record-button-wrapper">
+
+                    <form method="post" action="/">
+                        <button type="submit" class="btn btn-primary record-button">
+                            <img src="../static/images/microphone-icon-white.png">
+                            <!-- <input type="submit" value="Record" name="Record" /> -->
+                        </button>
+                    </form>
+                </div>
+                <div class="clear-button-wrapper">
+                    <button type="button" class="btn btn-warning clear-button">
+                        <img src="../static/images/clear-icon-white.png">
+                        <form method="post" action="/">
+                            <input type="submit" value="Clear" name="Clear" />
+                        </form>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type='text/javascript'>
+        /* global $ */
+        async function handleLaunchImmersiveReader(sampleId) {
+            const data = {
+                title: $('#title' + sampleId).text().trim(),
+                chunks: [{
+                    content: $('#text' + sampleId).text().trim(),
+                    lang: 'en'
+                }]
+            };
+            const token = await getImmersiveReaderTokenAsync();
+            ImmersiveReader.launchAsync(token, data);
+        }
+        const loc = window.location.href;
+        $('.navlink').removeClass('active');
+        if (/index/.test(loc)) {
+            $('.section-route').addClass('active');
+        }
+    </script>
 </body>
+
 </html>

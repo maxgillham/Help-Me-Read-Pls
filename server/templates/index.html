@@ -29,21 +29,20 @@
             <!-- Button for recording -->
             <div class="button-wrapper">
                 <div class="record-button-wrapper">
-
                     <form method="post" action="/">
-                        <button type="submit" class="btn btn-primary record-button">
+                        <button type="submit" value="Record" name="Record" class="btn btn-primary record-button">
                             <img src="../static/images/microphone-icon-white.png">
-                            <!-- <input type="submit" value="Record" name="Record" /> -->
                         </button>
                     </form>
+                    <div>Start Recording</div>
                 </div>
                 <div class="clear-button-wrapper">
-                    <button type="button" class="btn btn-warning clear-button">
-                        <img src="../static/images/clear-icon-white.png">
-                        <form method="post" action="/">
-                            <input type="submit" value="Clear" name="Clear" />
-                        </form>
-                    </button>
+                    <form method="post" action="/">
+                        <button type="submit" value="Clear" name="Clear" class="btn btn-warning clear-button">
+                            <img src="../static/images/clear-icon-white.png">
+                        </button>
+                    </form>
+                    <div class="clear-button-desc">Clear</div>
                 </div>
             </div>
         </section>

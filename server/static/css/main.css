@@ -186,6 +186,7 @@ button:hover{
     width: 80%;
     height: 70%;
     overflow: scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
     opacity: 0;
     z-index: 1;
@@ -195,6 +196,9 @@ button:hover{
 
 .KeywordNote{
     position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background-color: #ecf0f1;
     border-radius: 45px;
     padding-top: 10px;
@@ -212,6 +216,7 @@ button:hover{
     margin-bottom: 20px;
     text-align: center;
     vertical-align: middle;
+    box-shadow: 0px 6px 0px #bdc3c7;
     z-index: -1;
 }
 

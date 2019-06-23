@@ -114,19 +114,20 @@
 
       console.log(myKeywords)
 
-      for (let keyword of myKeywords){
+      if (myKeywords.length > 0){
+          for (let keyword of myKeywords){
 
-          let list = document.getElementById("BookmarksList")
-          let div = document.createElement('DIV');
-          div.className = "KeywordNote";
+              let list = document.getElementById("BookmarksList")
+              let div = document.createElement('DIV');
+              div.className = "KeywordNote";
 
-          let text = document.createElement('h2');
-          text.innerHTML = keyword;
+              let text = document.createElement('h2');
+              text.innerHTML = keyword;
 
-          list.appendChild(div);
-          div.appendChild(text);
-
-      }
+              list.appendChild(div);
+              div.appendChild(text);
+          }
+    }
   </script>
 
   <!-- Sounds -->

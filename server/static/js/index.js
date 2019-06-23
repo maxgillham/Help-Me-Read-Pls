@@ -69,12 +69,13 @@ function toggleRecord() {
     const button = document.getElementById("RecordButton");
     const text = document.getElementById("RecordText");
     const form = document.getElementById("RecordForm");
-    var audio = document.getElementById("StartRecordingAudio");
+    const startaudio = document.getElementById("StartRecordingAudio");
+    const endaudio = document.getElementById("EndRecordingAudio");
 
     // Open if closed
     if (!isRecording) {
         isRecording = true;
-        audio.play();
+        startaudio.play();
         button.style.backgroundColor = "#c0392b";
         button.style.bottom = "-56px";
         button.style.boxShadow = "0px 0px 0px #2980B9";
@@ -84,6 +85,7 @@ function toggleRecord() {
     // Close if open
     else {
         isRecording = false;
+        endaudio.play();
         button.style.backgroundColor = "#3498DB";
         button.style.bottom = "-50px";
         button.style.boxShadow = "0px 6px 0px #2980B9";

@@ -20,7 +20,7 @@ def get_text():
         output = "Cancelled"
     return output
 
-def get_immersive_reader_token():
+def get_immersive_reader_token(): #This method posts immersive reader token 
     payload = {'Ocp-Apim-Subscription-Key': keys.keys['IR_key'],'content-type': 'application/x-www-form-urlencoded'}
     resp = requests.post(keys.keys['IR_ENDPOINT'], headers=payload)
     return resp.text
